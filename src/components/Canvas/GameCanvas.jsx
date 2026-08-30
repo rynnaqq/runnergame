@@ -8,6 +8,26 @@ import LoadingScreen from '../UI/LoadingScreen.jsx'
 const CAM_BASE_Y = 4.2
 const shakeVec = { x: 0, y: 0 }
 
+// Dev-only perf report: draw calls, FPS, object count (PRD §10.3).
+function PerfReport() {
+  if (!import.meta.env.DEV) return null
+  let acc = 0
+  let frames = 0
+  useFrame((state, delta) => {
+    acc += delta
+    frames++
+    if (acc < 5) return
+    const fps = Math.round(frames / acc)
+    acc = 0
+    frames = 0
+    const info = state.gl.info
+    let objects = 0
+    state.scene.traverse(() => objects++)
+    console.info(`[perf] drawCalls=${info.render.calls} fps=${fps} objects=${objects}`)
+  })
+  return null
+}
+
 function CameraRig() {
   useFrame((state, delta) => {
     if (SIM.reducedMotion) return
@@ -79,6 +99,7 @@ export default function GameCanvas({ children }) {
         <hemisphereLight intensity={0.9} groundColor="#3a3a34" />
         <directionalLight position={[8, 14, 4]} intensity={1.6} />
         <CameraRig />
+        <PerfReport />
         <Suspense key={sceneKey} fallback={<LoadingScreen onRetry={retry} />}>
           {children}
         </Suspense>
