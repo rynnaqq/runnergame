@@ -2,6 +2,7 @@ import GameCanvas from './components/Canvas/GameCanvas.jsx'
 import Player from './components/Canvas/Player.jsx'
 import TrackManager from './components/Canvas/TrackManager.jsx'
 import Obstacles from './components/Canvas/Obstacles.jsx'
+import ParticleEffects from './components/Canvas/ParticleEffects.jsx'
 import GameOverModal from './components/UI/GameOverModal.jsx'
 import { useCollision } from './hooks/useCollision.js'
 
@@ -17,6 +18,7 @@ export default function App() {
         <TrackManager />
         <Obstacles />
         <Player />
+        <ParticleEffects />
         <CollisionSystem />
       </GameCanvas>
       <GameOverModal />
