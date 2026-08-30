@@ -2,6 +2,7 @@ import GameCanvas from './components/Canvas/GameCanvas.jsx'
 import Player from './components/Canvas/Player.jsx'
 import TrackManager from './components/Canvas/TrackManager.jsx'
 import Obstacles from './components/Canvas/Obstacles.jsx'
+import SceneryManager from './components/Canvas/SceneryManager.jsx'
 import ParticleEffects from './components/Canvas/ParticleEffects.jsx'
 import GameOverModal from './components/UI/GameOverModal.jsx'
 import { useCollision } from './hooks/useCollision.js'
@@ -16,6 +17,7 @@ export default function App() {
     <div id="game-region" tabIndex={-1} className="relative h-full w-full outline-none">
       <GameCanvas>
         <TrackManager />
+        <SceneryManager />
         <Obstacles />
         <Player />
         <ParticleEffects />
