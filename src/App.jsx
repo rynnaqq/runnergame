@@ -1,4 +1,5 @@
 import GameCanvas from './components/Canvas/GameCanvas.jsx'
+import Player from './components/Canvas/Player.jsx'
 
 export default function App() {
   return (
@@ -8,6 +9,7 @@ export default function App() {
           <boxGeometry args={[8, 0.2, 60]} />
           <meshStandardMaterial color="#555" />
         </mesh>
+        <Player />
       </GameCanvas>
     </div>
   )
