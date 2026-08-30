@@ -5,6 +5,7 @@ import Obstacles from './components/Canvas/Obstacles.jsx'
 import SceneryManager from './components/Canvas/SceneryManager.jsx'
 import ParticleEffects from './components/Canvas/ParticleEffects.jsx'
 import GameOverModal from './components/UI/GameOverModal.jsx'
+import HUD from './components/UI/HUD.jsx'
 import { useCollision } from './hooks/useCollision.js'
 
 function CollisionSystem() {
@@ -23,6 +24,7 @@ export default function App() {
         <ParticleEffects />
         <CollisionSystem />
       </GameCanvas>
+      <HUD />
       <GameOverModal />
     </div>
   )
